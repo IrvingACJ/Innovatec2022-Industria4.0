@@ -127,6 +127,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\img\andrew-neel-_71nlAn-2YA-unsplash.jpg" />
+    <Content Include="Content\assets\img\fabrice-villard-Jrl_UQcZqOc-unsplash.jpg" />
+    <Content Include="Content\assets\img\florian-klauer-mk7D-4UCfmg-unsplash.jpg" />
+    <Content Include="Content\assets\img\kui-ye-chen-NuOGFo4PudE-unsplash.jpg" />
+    <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\nicholas-kwok-VBWWscZtszY-unsplash.jpg" />
+    <Content Include="Content\assets\img\yoann-siloine-dyaxQ-aoGWY-unsplash.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -138,6 +145,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\custom\script.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />

@@ -131,7 +131,8 @@
     <Content Include="Content\assets\img\fabrice-villard-Jrl_UQcZqOc-unsplash.jpg" />
     <Content Include="Content\assets\img\florian-klauer-mk7D-4UCfmg-unsplash.jpg" />
     <Content Include="Content\assets\img\kui-ye-chen-NuOGFo4PudE-unsplash.jpg" />
-    <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\logo_v1.png" />
+    <Content Include="Content\assets\img\logo_v2.png" />
     <Content Include="Content\assets\img\nicholas-kwok-VBWWscZtszY-unsplash.jpg" />
     <Content Include="Content\assets\img\yoann-siloine-dyaxQ-aoGWY-unsplash.jpg" />
     <Content Include="Content\bootstrap-theme.css" />

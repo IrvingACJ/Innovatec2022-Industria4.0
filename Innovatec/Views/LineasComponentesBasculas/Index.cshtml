@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Innovatec.Models.tLineasComponentesBasculas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 style="color:#bfe8e4">Index</h2>
+
+    <table class="table table-bordered">
+        <thead style="color:#fff">
+            <tr >
+                <th>
+                    @Html.DisplayNameFor(model => model.tBasculas.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tComponentes.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tLineasProduccion.Descripcion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tBasculas.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tComponentes.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tLineasProduccion.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+

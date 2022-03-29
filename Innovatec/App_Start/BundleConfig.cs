@@ -25,6 +25,7 @@ namespace Innovatec
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/fontawesome-all.css",
                       "~/Content/site.css"));
         }
     }

@@ -8,7 +8,7 @@ namespace Innovatec.Models
     public partial class DB_I4 : DbContext
     {
         public DB_I4()
-            : base("name=DB_I4_Abril")
+            : base("name=DB_I4_Irving")
         {
         }
 

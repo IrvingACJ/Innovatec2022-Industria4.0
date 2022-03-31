@@ -161,6 +161,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\scriptdb.sql" />
+    <Content Include="Raspberry\SqlCon.py" />
+    <Content Include="Raspberry\__init__.py" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-grid.css.map" />

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Innovatec.Models.tBasculas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <meta http-equiv="Refresh" content="20" />
+}
+
+<div class="container">
+    <h2 style="color:#bfe8e4">Basculas</h2>
+
+    <table class="table table-bordered">
+        <thead style="color:#fff">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID_Bascula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody style="color:#fff">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_Bascula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion.Split(':')[0])
+                    </td>
+                    <td>
+                        @if (item.Descripcion.Split(':')[1] != "Active")
+                        {
+                            <text>
+                                <i style="color:#ff7e96" class="fa fa-window-close-o" aria-hidden="true"></i>
+                            </text>
+                        }
+                        else
+                        {
+                            <text>
+                                <i style="color:aquamarine" class="fa fa-check-square-o" aria-hidden="true"></i>
+                            </text>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

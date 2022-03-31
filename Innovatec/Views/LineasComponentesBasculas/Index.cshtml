@@ -6,11 +6,11 @@
 }
 
 <div class="container">
-    <h2 style="color:#bfe8e4">Index</h2>
+    <h2 style="color:#bfe8e4">Inventario</h2>
 
     <table class="table table-bordered">
         <thead style="color:#fff">
-            <tr >
+            <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.tBasculas.Descripcion)
                 </th>
@@ -20,30 +20,36 @@
                 <th>
                     @Html.DisplayNameFor(model => model.tLineasProduccion.Descripcion)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.tBasculas.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.tComponentes.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.tLineasProduccion.Descripcion)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
-        }
+        <tbody style="color:#fff">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tBasculas.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tComponentes.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tLineasProduccion.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
         </tbody>
     </table>
 </div>
-

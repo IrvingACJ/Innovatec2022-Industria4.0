@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Innovatec.Models.tComponentes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 style="color:#bfe8e4">Basculas</h2>
+
+    <table class="table table-bordered">
+        <thead style="color:#fff">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PesoUnitarioGramos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Minimo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Maximo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody style="color:#fff">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PesoUnitarioGramos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Minimo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maximo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Componente }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Componente }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Componente })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

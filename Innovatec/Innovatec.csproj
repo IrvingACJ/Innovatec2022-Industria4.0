@@ -125,6 +125,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BasculasController.cs" />
+    <Compile Include="Controllers\ComponentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LineasComponentesBasculasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,6 +197,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Basculas\Index.cshtml" />
+    <Content Include="Views\Componentes\Index.cshtml" />
     <Content Include="Views\LineasComponentesBasculas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

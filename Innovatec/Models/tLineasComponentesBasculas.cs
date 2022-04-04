@@ -20,7 +20,11 @@ namespace Innovatec.Models
         public string ID_Bascula { get; set; }
         
         public int? Cantidad { get; set; }
-        
+
+        public int? Minimo { get; set; }
+
+        public int? Maximo { get; set; }
+
         public virtual tBasculas tBasculas { get; set; }
 
         public virtual tComponentes tComponentes { get; set; }

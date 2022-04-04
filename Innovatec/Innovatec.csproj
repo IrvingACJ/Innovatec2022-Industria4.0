@@ -200,6 +200,8 @@
     <Content Include="Views\Basculas\Index.cshtml" />
     <Content Include="Views\Componentes\Index.cshtml" />
     <Content Include="Views\LineasComponentesBasculas\Index.cshtml" />
+    <Content Include="Views\Componentes\Create.cshtml" />
+    <Content Include="Views\Home\Template.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

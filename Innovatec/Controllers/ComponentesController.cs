@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Innovatec.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace Innovatec.Controllers
 {
     public class ComponentesController : Controller
     {
+        DB_I4 db = new DB_I4();
         // GET: Componentes
         public ActionResult Index()
         {
-            return View();
+            var List = db.tComponentes.ToList();
+            return View(List);
         }
 
         // GET: Componentes/Details/5
@@ -23,7 +26,8 @@ namespace Innovatec.Controllers
         // GET: Componentes/Create
         public ActionResult Create()
         {
-            return View();
+            tComponentes NewItem = new tComponentes();
+            return View(NewItem);
         }
 
         // POST: Componentes/Create

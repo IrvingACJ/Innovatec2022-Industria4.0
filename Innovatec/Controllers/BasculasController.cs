@@ -16,6 +16,18 @@ namespace Innovatec.Controllers
             var List = db.tBasculas.AsEnumerable();
             return View(List);
         }
+        public JsonResult List()
+        {
+            var List = from b in db.tBasculas.AsEnumerable()
+                             select new
+                             {
+                                 b.ID_Bascula,
+                                 Ubicacion = b.Descripcion.Split(':')[0],
+                                 Status = b.Descripcion.Split(':')[1]
+                             };
+            
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Basculas/Details/5
         public ActionResult Details(int id)

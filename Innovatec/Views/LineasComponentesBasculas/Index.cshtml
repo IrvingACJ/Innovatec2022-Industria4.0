@@ -4,34 +4,44 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section head{
+}
 
-<div class="container">
+<div class="container mb-5">
     <h2 style="color:#bfe8e4">Inventario</h2>
 
     <table class="table table-bordered">
-        <thead style="color:#fff">
+        <thead class="bg-dark">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.tBasculas.Descripcion)
+                    BASCULA
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.tComponentes.Descripcion)
+                    COMPONENTE
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.tLineasProduccion.Descripcion)
+                    LINEA
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cantidad)
+                    CANTIDAD
                 </th>
-                <th></th>
+                <th>
+                    ERROR
+                </th>
             </tr>
         </thead>
-        <tbody style="color:#fff">
+        <tbody style="color:#fff; background-color:#000">
             @foreach (var item in Model)
             {
-                <tr>
+                <tr style="color:#fff;
+                           @{
+                               var color = "background-color:#ff7e96;";
+                               if (item.Cantidad  <= item.Minimo || item.Cantidad >= item.Maximo) {
+                                   @color;
+                               }
+                           } ">
                     <td>
-                        @Html.DisplayFor(modelItem => item.tBasculas.Descripcion)
+                        @Html.DisplayFor(modelItem => item.tBasculas.ID_Bascula)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tComponentes.Descripcion)
@@ -43,9 +53,16 @@
                         @Html.DisplayFor(modelItem => item.Cantidad)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        @{
+                            if (item.Cantidad <= item.Minimo)
+                            {
+                                @Html.Raw("El material ha llegado a su minimo");
+                            }
+                            else if (item.Cantidad >= item.Maximo)
+                            {
+                                @Html.Raw("El material ha llegado a su maximo");
+                            }
+                        }
                     </td>
                 </tr>
             }
@@ -53,3 +70,43 @@
         </tbody>
     </table>
 </div>
+
+<div style="width:100%; margin-bottom:150px"></div>
+@section scripts{
+    <script>
+        var table = $('.table').DataTable({
+                ajax: {
+                     url: '@Url.Action("List","LineasComponentesBasculas")',
+                     dataSrc: ''
+                },
+                columns: [
+                    { data: 'Bascula' },
+                    { data: 'Componente' },
+                    { data: 'Linea' },
+                    { data: 'Cantidad' },
+                    {
+                        data: 'Error'
+                    }
+                 ],
+            createdRow: function (row, data, index) {
+                if (data['Error'] != "") {
+
+                    $(row).css("background-color", "red");
+                }
+                else {
+                    $(row).addClass('bg-dark')
+                }
+                },  
+                 drawCallback: function (settings) {
+                     $('.dataTables_length').attr("style", "color:#fff")
+                     $('.dataTables_filter').attr("style", "color:#fff")
+                     $('[aria-controls="DataTables_Table_0"]').attr("style", "color:#fff")
+                 }
+             });
+        $(document).ready(function () {
+            setInterval(function () {
+                table.ajax.reload();
+            }, 1000);
+        });
+    </script>
+}

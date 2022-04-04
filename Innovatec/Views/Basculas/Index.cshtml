@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section head{
-    <meta http-equiv="Refresh" content="20" />
-}
+@*@section head{
+    <meta http-equiv="Refresh" content="5" />
+}*@
 
-<div class="container">
+<div class="container mb-5">
     <h2 style="color:#bfe8e4">Basculas</h2>
 
     <table class="table table-bordered">
@@ -25,7 +25,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody style="color:#fff">
+        <tbody style="color:#fff; background-color:#000">
             @foreach (var item in Model)
             {
                 <tr>
@@ -54,3 +54,42 @@
         </tbody>
     </table>
 </div>
+
+<div style="width:100%; margin-bottom:150px"></div>
+@section scripts{
+    <script>
+        var table = $('.table').DataTable({
+                ajax: {
+                     url: '@Url.Action("List","Basculas")',
+                     dataSrc: ''
+                },
+                columns: [
+                    { data: 'ID_Bascula' },
+                    { data: 'Ubicacion' },
+                    {
+                        data: 'Status',
+                        render: function (data, type, row) {
+                            if (data != "Active") {
+                                return '<i style = "color:#ff7e96" class="fa fa-window-close-o" aria-hidden="true" ></i>';
+                            }
+                            else {
+
+                                return '<i style = "color:aquamarine" class="fa fa-check-square-o" aria-hidden="true" ></i>';
+                            }
+                        }
+                    }
+                 ],
+                 drawCallback: function (settings) {
+                     $('tr').addClass('bg-dark')
+                     $('.dataTables_length').attr("style", "color:#fff")
+                     $('.dataTables_filter').attr("style", "color:#fff")
+                     $('[aria-controls="DataTables_Table_0"]').attr("style", "color:#fff")
+                 }
+             });
+        $(document).ready(function () {
+            setInterval(function () {
+                table.ajax.reload();
+            }, 1000);
+        });
+    </script>
+}

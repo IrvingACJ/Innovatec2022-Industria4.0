@@ -16,6 +16,21 @@ namespace Innovatec.Controllers
             var List = db.tLineasComponentesBasculas.AsEnumerable();
             return View(List);
         }
+        public JsonResult List()
+        {
+            var List = from lcb in db.tLineasComponentesBasculas.AsEnumerable()
+                       select new
+                       {
+                           Bascula = lcb.ID_Bascula,
+                           Componente = lcb.tComponentes.Descripcion,
+                           Linea = lcb.tLineasProduccion.Descripcion,
+                           Cantidad = lcb.Cantidad,
+                           Error = (lcb.Cantidad >= lcb.Maximo) ? "Componente llego a su Maximo." 
+                                     :  (lcb.Cantidad <= lcb.Minimo) ? "Componente llego a su Minimo."
+                                     :  ""
+                       };
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: LineasComponentesBasculas/Details/5
         public ActionResult Details(int id)

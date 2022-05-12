@@ -7,7 +7,7 @@
 
 
 <div class="container">
-    <h2 style="color:#bfe8e4">Basculas</h2>
+    <h2 style="color:#bfe8e4">Componentes</h2>
 
     <table class="table table-bordered">
         <thead style="color:#fff">
@@ -49,15 +49,16 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Imagen)
                     </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Componente }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID_Componente }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Componente })
+                    <td class="text-wa">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Componente }, new { @class = "text-warning"}) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Componente }, new { @class = "text-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Componente }, new { @class = "text-danger" })
                     </td>
                 </tr>
             }
 
         </tbody>
     </table>
+    <a href="@Url.Action("Create","Componentes")">Nuevo</a>
 </div>
 
